@@ -16,8 +16,7 @@
             3) 항상 <thead>, <tbody>, <tfoot> 순서가 유지된다.
         3. 행(row)을 만드는 <tr> 태그가 있고, 데이터를 입력할 열을 만드는 <td> 태그가 있다.
     -->
-
-    <table border="1" width="400" align="center">
+    <table border="1">
       <thead>
         <tr>
           <td>제품명</td>
@@ -42,6 +41,214 @@
           <td>합계</td>
           <td>30</td>
           <td>30</td>
+        </tr>
+      </tfoot>
+    </table>
+    <hr />
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <img src="../../images/animal1.jpg" width="200" />
+          </td>
+          <td>
+            <img src="../../images/animal2.jpg" width="200" margin="10" />
+          </td>
+          <td>
+            <img src="../../images/animal3.jpg" width="200" />
+          </td>
+        </tr>
+        <tr>
+          <td align="center">10,000원<br /><strong>여우</strong></td>
+          <td align="center">
+            20,000원
+            <br /><strong>고슴도치</strong>
+          </td>
+          <td align="center">
+            30,000원
+            <br /><strong>순록</strong>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <!--
+        셀 병합
+        1. <td> 태그의 속성으로 병합한다.
+        2. 병합 속성
+            1) colspan : 열 병합, 좌우 셀을 하나로 병합
+            2) rowspan : 행 병합, 상하 셀을 하나로 병합
+    -->
+    <!-- 열 병합 -->
+    <table border="1">
+      <tbody>
+        <tr>
+          <td>1열</td>
+          <td>2열</td>
+          <td>3열</td>
+        </tr>
+        <tr>
+          <td>1열</td>
+          <td colspan="2" align="center">2~3열</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center">1~3열</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <!-- 행 병합 -->
+    <table border="1">
+      <tbody>
+        <tr>
+          <td>1행</td>
+          <td rowspan="2">1~2행</td>
+          <td rowspan="3">1~3행</td>
+        </tr>
+        <tr>
+          <td>2행</td>
+        </tr>
+        <tr>
+          <td>3행</td>
+          <td>3행</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+
+    <!-- 연습문제 1 -->
+    <p>연습문제 1</p>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>나이</th>
+          <th>주소</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>홍길동</td>
+          <td>20세</td>
+          <td>서울시 마포구 노고산동</td>
+        </tr>
+        <tr>
+          <th>특기</th>
+          <td colspan="2">먹기</td>
+        </tr>
+        <tr>
+          <th rowspan="2">신체</th>
+          <td colspan="2">180.0cm</td>
+        </tr>
+        <tr>
+          <td colspan="2">83kg</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+
+    <!-- 연습문제 2 -->
+    <p>연습문제 2</p>
+    <table border="1">
+      <tr>
+        <td rowspan="5">1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td rowspan="3">10</td>
+        <td>11</td>
+        <td>12</td>
+        <td rowspan="2">13</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>17</td>
+        <td>18</td>
+      </tr>
+      <tr>
+        <td colspan="5">19</td>
+      </tr>
+    </table>
+    <hr />
+
+    <!-- 연습문제 3 -->
+    <p>연습문제 3</p>
+    <table border="1">
+      <tr>
+        <td colspan="4">1</td>
+        <td rowspan="7">2</td>
+      </tr>
+      <tr>
+        <td rowspan="5">3</td>
+        <td rowspan="4">4</td>
+        <td colspan="2">5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td rowspan="4">7</td>
+      </tr>
+      <tr>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td colspan="2">10</td>
+      </tr>
+      <tr>
+        <td colspan="4">11</td>
+      </tr>
+    </table>
+    <hr />
+    <table border="1">
+      <caption>
+        우리 펜션 객실 안내
+      </caption>
+      <thead>
+        <tr>
+          <th>방이름</th>
+          <th>고객구분</th>
+          <th>정원</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>콜로라도</td>
+          <td>여성 전용</td>
+          <td rowspan="3">4인실</td>
+          <td rowspan="4">100,000원</td>
+        </tr>
+        <tr>
+          <td rowspan="2">아레나도</td>
+          <td>가족용</td>
+        </tr>
+        <tr>
+          <td>커플용</td>
+        </tr>
+        <tr>
+          <td>엘레나</td>
+          <td>커플 전용</td>
+          <td>2인실</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">6월 15일까지 전 객실 50% 할인</th>
         </tr>
       </tfoot>
     </table>
