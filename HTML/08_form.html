@@ -61,7 +61,7 @@
 
     <!-- 4. 단일 선택 : <input type="radio"> -->
     <p>
-      <!-- name 속성 : 같은 name을 가지는 radio가 하나처럼 동작한다. -->
+      <!-- name 속성 : 같은 name을 가지는 radio가 하나의 변수처럼 동작한다. -->
       <input type="radio" name="gender" />남
       <input type="radio" name="gender" />여
       <br />
@@ -83,6 +83,42 @@
       <input type="checkbox" name="hobbies" value="2" />여행
       <input type="checkbox" name="hobbies" value="4" />독서
       <input type="checkbox" name="hobbies" value="8" />영화
+    </p>
+
+    <!-- 6. 목록 선택 : <select> 태그 -->
+    <p>
+      <!-- 하나의 option을 선택할 수 있다. -->
+      <select>
+        <option>naver.com</option>
+        <option>kakao.com</option>
+        <option>gmail.com</option>
+      </select>
+      <!-- multiple 속성 : 여러 개의 option을 선택할 수 있다. -->
+      <select multiple>
+        <option>서울</option>
+        <option>경기</option>
+        <option>인천</option>
+      </select>
+      <!-- name 속성   : <select> 태그에 작성한다. -->
+      <!-- value 속성  : <option> 태그에 작성한다. -->
+      <select name="direction">
+        <option value="">방향을 선택하세요</option>
+        <option value="east">동</option>
+        <option value="west">서</option>
+        <option value="south">남</option>
+        <option value="north">북</option>
+      </select>
+    </p>
+
+    <!-- 7. 입력과 목록 선택을 동시에 처리 : <> 태그와 <datalist> -->
+
+    <p>
+      <input type="text" list="domain" />
+      <datalist id="domain">
+        <option value="naver.com" />
+        <option value="kakao.com" />
+        <option value="gmail.com" />
+      </datalist>
     </p>
   </body>
 </html>
