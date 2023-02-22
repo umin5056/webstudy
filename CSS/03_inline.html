@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        color: blue;
+      }
+      p {
+        color: chocolate !important; /* !important로 인해 p 태그는 언제나 chocolate다. */
+      }
+    </style>
+  </head>
+  <body>
+    <!--  
+        inline 스타일
+        1. HTML 태그에 style 속성을 지정하는 방식
+        2. CSS의 우선 순위가 가장 높은 방식 (기존의 CSS 속성을 엎어쓰기 한다.)
+        3. 우선 순위를 조정하기 위해서 !important를 사용할 수 있다.
+            주의) !important의 사용은 가급적 자제한다.
+     -->
+
+    <h1 style="color: darkgreen">Hello World</h1>
+    <p style="color: teal">방가방가</p>
+  </body>
+</html>
