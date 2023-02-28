@@ -8,6 +8,12 @@
     <style>
       @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
 
+      div {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
       body {
         background-color: antiquewhite;
       }
@@ -37,21 +43,22 @@
       }
 
       .icon_wrap {
-        background-color: gray;
         width: 40px;
         height: 40px;
         text-align: center;
         line-height: 40px;
+        background-color: gray;
         border-radius: 3px 0 0 0;
       }
       .input_wrap > input {
         height: 34px;
-        border: none;
+        border: 0;
+        outline: 0;
         padding-left: 10px;
         padding-top: 3px;
         width: 270px;
       }
-      .right_wrap > input {
+      .right_wrap > button {
         background-color: gray;
         width: 90px;
         height: 100%;
@@ -78,7 +85,7 @@
               </div>
             </div>
           </div>
-          <div class="right_wrap"><input type="submit" value="로그인" /></div>
+          <div class="right_wrap"><button>로그인</button></div>
         </div>
       </form>
     </div>
