@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box1"></div>
+    <script>
+      // 내부 텍스트 : textContent
+      var box1 = document.getElementById("box1");
+      box1.textContent = "Hello World";
+    </script>
+
+    <div id="box2"><p>문단</p></div>
+    <script>
+      // textContent는 태그를 제외한 내부 텍스트만을 의미힌다.
+      var box2 = document.getElementById("box2");
+      console.log(box2.textContent);
+    </script>
+
+    <div id="box3"></div>
+    <script>
+      // 내부 HTML 요소 : innerHTML
+      var box3 = document.getElementById("box3");
+      box3.innerHTML = "<p>문단</p>"; // textContent로 할 경우 태그까지 문자로 인식
+    </script>
+
+    <ul id="season"></ul>
+    <script>
+      // 내부 요소 추가를 위해서 + 연산자를 사용할 수 있다.
+      var season = document.getElementById("season");
+      season.innerHTML += "<li>봄</li>";
+      season.innerHTML += "<li>여름</li>";
+      season.innerHTML += "<li>가을</li>";
+      season.innerHTML += "<li>겨울</li>";
+    </script>
+
+    <div id="box4">Hello World</div>
+    <script>
+      /*
+        CSS 적용하기
+        1. style 속성을 이용한다.
+        2. inline 방식으로 CSS가 적용된다.
+        3. css 속성 적용 방식
+            1) 마침표 : CSS 속성에서 하이픈(-)을 제거한 뒤 camel case 방식의 이름으로 사용한다.
+            2) 대괄호 : CSS 속성을 문자열 형식으로 그대로 사용한다.
+        4. 작성 예시
+            1) 마침표 : dom.style.fontSize = '12px';
+            2) 대괄호 : dom.style['font-size'] = '12px';
+
+      */
+      var box4 = document.getElementById("box4");
+      box4.style.color = "blue";
+      box4.style["color"] = "red";
+    </script>
+
+    <div id="box5" class="box5">Hello World</div>
+
+    <script>
+      /*
+            attribute
+            1. 태그에 명시된 속성이다.
+            2. getter/setter 메소드를 이용해서 attribute를 사용한다.
+            3. 메소드
+                1) 속성 알아내기 : getAttribute('속성명')
+                2) 속성 변경하기 : setAttribute('속성명', '값')
+        */
+
+      var box5 = document.getElementById("box5");
+      console.log(box5.getAttribute("id"));
+      console.log(box5.getAttribute("class"));
+      box5.setAttribute("id", "box5-1");
+      box5.setAttribute("class", "box5-1");
+    </script>
+
+    <div id="box6" class="box6"></div>
+    <script>
+      /*
+            property
+            1. 객체가 가지는 속성이다.
+            2. 마침표를 이용해서 property를 사용한다.
+            3. property 확인하는 방법
+                개발자 도구 - Element - Properties 
+        */
+      var box6 = document.getElementById("box6");
+      console.log(box6.id);
+      console.log(box6.className);
+      box6.id = "box6-1";
+      box6.className = "box6-1";
+    </script>
+    <div>
+      <input id="inp" type="text" value="Hello World" readonly="readonly" />
+    </div>
+    <script>
+      var inp = document.getElementById("inp");
+      //   inp.removeAttribute("readonly");
+      inp.readOnly = false;
+      //   inp.setAttribute('readonly','false'); : property의 값을 변경해야하는데 set.attr로는 접근 불가능해서 적용안됨
+    </script>
+
+    <style>
+      .red_text {
+        color: red;
+      }
+      .blue_text {
+        color: blue;
+      }
+    </style>
+    <div id="box7" class="red_text">Hello World</div>
+
+    <script>
+      // box7의 글자색 바꾸는 방법
+      var box7 = document.getElementById("box7");
+      box7.setAttribute("class", "blue_text");
+      box7.style.color = "red"; // color property를 직접 수정하는게 최우선 순위로 클래스 이름을 변경해도 컬러는 red로 고정
+
+      //   box7.style["color"] = "blue";
+      box7.className = "blue_text";
+    </script>
+  </body>
+</html>
