@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        객체(object)
+
+        1. 여러 값으로 구성된 하나의 데이터를 의미한다.
+        2. 중괄호 {}를 이용해서 나타낸다.
+        3. 하나의 값이 쌍(pair)으로 구성된다.
+            {
+                '속성' : 값,
+                 속성  : 값,
+                property : value
+            }
+    */
+
+      /* 
+        객체의 속성(property) 확인하기
+        1. 마침표 : 객체.속성
+        2. 대괄호 : 객체['속성']
+    */
+      // 객체 생성하기
+      var obj = {
+        age: 30,
+        name: "Jowoomin",
+        isAlive: true,
+        friend: {
+          name: "heezo",
+          phone: "1234-14312",
+        },
+        hobbies: ["여행", "골프", "음주"],
+        info: function () {
+          // 객체의 속성을 호출할 때는 항상 객체.속성 또는 객체['속성']으로 호출한다.
+          // this : 현재 객체를 의미한다. 즉 obj를 의미한다. (자바와 동일)
+          console.log(
+            "이름이 뭐에요?" + this.name + ", 나이가 뭐에요?" + obj["age"]
+          );
+        },
+      };
+
+      // 객체의 속성(property) 확인하기
+      console.log(obj.age, obj["age"]);
+      console.log(obj.name, obj["name"]);
+      console.log(obj.isAlive, obj["isAlive"]);
+      console.log(obj.friend.name, obj.friend["name"]);
+      console.log(obj["friend"].name, obj["friend"]["name"]);
+      console.log(obj.friend.phone, obj.friend["phone"]);
+      console.log(obj["friend"].phone, obj["friend"]["phone"]);
+
+      for (let i = 0; i < obj.hobbies.length; i++) {
+        console.log(obj.hobbies[i]);
+      }
+
+      for (let i = 0; i < obj["hobbies"].length; i++) {
+        console.log(obj["hobbies"][i]);
+      }
+      obj.info();
+      obj["info"]();
+    </script>
+  </body>
+</html>
