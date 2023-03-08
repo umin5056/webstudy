@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            비동기 처리 방식
+            1. 데이터를 주고 받는 통신(송,수신) 과정이 없이 처리되는 방식이다.
+            2. 응답이 없어도 계속 요청할 수 있는 방식이다.
+            3. 페이지를 구성하는 일부 데이터만 요청하고 응답 받을 수 있다.
+            4. 이 때 JavaScript의 XMLHttpRequest 객체가 사용된다.
+        */
+    </script>
+
+    <div>
+      <input type="button" id="btn_req_text" value="텍스트 요청" />
+      <div id="res_text"></div>
+    </div>
+    <script>
+      document.getElementById("btn_req_text").addEventListener("click", () => {
+        /* XMLHttpRequest 객체 생성 */
+        var xhr = new XMLHttpRequest();
+        /*
+     2. open - 요청 정보 생성
+         1) 형식 : open(HTTP Method, URL, Sync/Async)
+         2) HTTP Method
+             (1) GET
+             (2) POST
+         3) URL : 요청하는 서버의 경로
+         4) Sync/Async
+             (1) Sync(동기)    : false
+             (2) Async(비동기) : true
+ */
+        xhr.open("GET", "data.txt", true);
+
+        /* 3. send - 요청하기 */
+        xhr.send();
+
+        /* 4. 응답 처리하기
+     1) 응답되었는지 확인하기 위한 readystatechange 이벤트가 사용된다.
+     2) 응답 속성
+         (1) readyState - 통신 상태 확인
+          ① 0 : OPENED
+          ② 1 : UNSEND
+          ③ 2 : HEADERS_RECEIVE
+          ④ 3 : LOADING
+          ⑤ 4 : DONE (이것만 사용하면 된다.
+         (2) status - 응답 코드
+          ① 200 : 응답 성공
+          ② 4xx : 요청 실패 (사용자 원인)
+          ③ 5xx : 응답 실패 (서버 원인)
+         (3) 응답 데이터의 형식
+          ① 텍스트 : responseText
+          ② XML    : responseXML
+          ③ JSON   : JSON.parse(responseText)
+  */
+
+        // readystatechange 이벤트 등록
+        xhr.addEventListener("readystatechange", () => {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("res_text").textContent = xhr.responseText;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
