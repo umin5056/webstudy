@@ -141,15 +141,9 @@
           var chkNum = 0;
 
           for (let j = 0; j < chkOneList.length; j++) {
-            if (chkOneList[j].checked == true) {
-              chkNum += 1;
-            }
+            chkNum += chkOneList[j].checked;
           }
-          if (chkNum == 3) {
-            chkAll.checked = true;
-          } else {
-            chkAll.checked = false;
-          }
+          chkAll.checked = chkOneList.length == chkNum;
         };
       }
     </script>
