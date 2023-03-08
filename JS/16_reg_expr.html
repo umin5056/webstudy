@@ -114,5 +114,48 @@
         }
       });
     </script>
+
+    <div>
+      <h1>비밀번호 검사하기</h1>
+      <input type="password" id="pw" />
+      <span id="msg_pw"></span>
+    </div>
+    <script>
+      // 비밀번호 입력란
+      var pw = document.getElementById("pw");
+      //비밀번호 메세지
+      var msgPw = document.getElementById("msg_pw");
+
+      // 비밀번호를 입력할 때마다(keyup) 곧바로 정규식 검사
+      pw.addEventListener("keyup", () => {
+        // 비밀번호
+        // 1. 전체 4 ~ 20자
+        // 2. 대소문자, 숫자, 특수문자(!@#$%^&*)
+        // 3. 대소문자, 숫자, 특수문자 모두 포함
+
+        // 우민 코드
+        // var regOn = [/[A-Z]+/, /[a-z]+/, /[!@#$%^&*]+/, /[0-9]+/];
+        // var chk = 0;
+        // for (let i = 0; i < regOn.length; i++) {
+        //   if (regOn[i].test(pw.value)) {
+        //     chk++;
+        //   }
+        // }
+
+        // 선생님 코드
+        var pwLength = pw.value.length;
+        var chk =
+          /[A-Z]/.test(pw.value) + // has UpperCase?
+          /[a-z]/.test(pw.value) + // has LowerCase?
+          /[0-9]/.test(pw.value) + // has Number?
+          /[^A-Za-z0-9]/.test(pw.value); // has Special?
+
+        if (pwLength >= 4 && pwLength <= 20 && chk == 4) {
+          msgPw.textContent = "비밀번호 사용 가능";
+        } else {
+          msgPw.textContent = "대소문자, 숫자, 특수문자를 사용하세요.";
+        }
+      });
+    </script>
   </body>
 </html>
