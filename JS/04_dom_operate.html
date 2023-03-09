@@ -14,7 +14,9 @@
       box1.textContent = "Hello World";
     </script>
 
-    <div id="box2"><p>문단</p></div>
+    <div id="box2">
+      <p>문단</p>
+    </div>
     <script>
       // textContent는 태그를 제외한 내부 텍스트만을 의미힌다.
       var box2 = document.getElementById("box2");
@@ -46,10 +48,9 @@
         2. inline 방식으로 CSS가 적용된다.
         3. css 속성 적용 방식
             1) 마침표 : CSS 속성에서 하이픈(-)을 제거한 뒤 camel case 방식의 이름으로 사용한다.
+              예시 >> 마침표 : dom.style.fontSize = '12px';
             2) 대괄호 : CSS 속성을 문자열 형식으로 그대로 사용한다.
-        4. 작성 예시
-            1) 마침표 : dom.style.fontSize = '12px';
-            2) 대괄호 : dom.style['font-size'] = '12px';
+              예시 >> 대괄호 : dom.style['font-size'] = '12px';
 
       */
       var box4 = document.getElementById("box4");
