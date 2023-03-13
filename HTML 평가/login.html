@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <style>
+      input {
+        display: block;
+      }
+      #insert_id {
+        margin-bottom: 2px;
+      }
+      #set_info {
+        display: flex;
+      }
+      #set_info > input {
+        margin-right: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="https://www.gdu.co.kr/images/main/logo.png" width="176px" />
+    <form action="board.html">
+      <input id="insert_id" type="text" placeholder="아이디" size="24" />
+
+      <input type="password" placeholder="비밀번호" size="24" />
+
+      <button>로그인</button>
+
+      <div id="set_info">
+        <input type="checkbox" id="auto_login" />
+        <label for="auto_login">자동 로그인 &nbsp;</label>
+        <input type="checkbox" id="save_pw" />
+        <label for="save_pw">비밀번호 저장</label>
+      </div>
+    </form>
+  </body>
+</html>

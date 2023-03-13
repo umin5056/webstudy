@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://127.0.0.1:5500/webstudy/jQuery/03_jQuery_DOM.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Document_files/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // 1. 태그로 인식하기
+      var div = $("div");
+      console.log(div); // 배열로 인식한다.
+
+      // 2. 아이디로 인식하기
+      var box = $("#box");
+      console.log(box); // 객체로 인식한다. (아이디는 중복이 불가하기 떄문)
+
+      // 3. 클래스로 인식하기
+      var wrap = $(".wrap");
+      console.log(wrap); // 배열로 인식한다.
+    </script>
+
+    <div id="box" class="wrap"></div>
+
+    <script>
+      $(function () {
+        // 4. 자식, 후손
+        console.log($("#ott > li")); // 자식 관계 중에서 li 태그만 호출
+        console.log($("#ott").find("li")); // 자식,후손 관계 중에서 li 태그만 호출
+        console.log($("#ott a")); // 후손 관계 중에서 a 태그만 호출
+        console.log($("#ott").find("a")); // 자식,후손 관계 중에서 a 태그만 호출
+        console.log($("#ott").children()); // 모든 자식 관계를 호출
+        console.log($("#ott").children().children()); // 모든 자식의 모든 자식을 호출
+      });
+
+      // 5. 형제
+      console.log($("#netflex ~ li")); // 모든 형제 관계 중에서 li 태그
+      console.log($("#netflex").siblings("li")); // 모든 형제 관계 중에서 li 태그
+      console.log($("#netflex + li"));
+      /*
+        메소드 체이닝(method chaining)
+        $().children().children() 처럼 메소드를 연속해서 호출하는 방식
+      */
+    </script>
+
+    <div>
+      <ul id="ott">
+        <li id="netflex"><a href="javascript:void(0)">넷플릭스</a></li>
+        <li id="disneyplus"><a href="javascript:void(0)">디즈니플러스</a></li>
+        <li id="wave"><a href="javascript:void(0)">웨이브</a></li>
+        <li id="coupangplay"><a href="javascript:void(0)">쿠팡플레이</a></li>
+        <li id="watchar"><a href="javascript:void(0)">왓챠</a></li>
+      </ul>
+    </div>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
