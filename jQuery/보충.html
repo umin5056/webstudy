@@ -121,5 +121,132 @@
       // 함수 호출
       fnImageDisplay();
     </script>
+    <hr />
+    <div id="box3">
+      <div id="origin_img"></div>
+      <ul id="thumbnails"></ul>
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #box3 {
+        width: 480px;
+      }
+      #origin_img {
+        width: 100%;
+        height: 320px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+      #thumbnails {
+        width: 100%;
+        height: 60px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+      }
+      #thumbnails li {
+        width: 60px;
+        height: 100%;
+        margin: 0px 10px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <script>
+      // dom
+      var originImage = $("#origin_img");
+      var thumbnails = $("#thumbnails");
+
+      // 이미지 목록(배열)과 인덱스
+      var idx = 0;
+      var thumbnailList = [
+        "flower1.jpg",
+        "flower2.jpg",
+        "flower3.jpg",
+        "flower4.jpg",
+        "flower5.jpg",
+      ];
+
+      // 초기 이미지
+      originImage.css(
+        "background-image",
+        "url(../../images/" + thumbnailList[idx] + ")"
+      );
+
+      // 썸네일 이미지 넣기
+      $.each(thumbnailList, (i, element) => {
+        var li = $("<li>");
+        li.css("background-image", "url(../../images/" + element + ")");
+        thumbnails.append(li);
+      });
+
+      // 썸네일 이미지에 마우스를 가져다대면 원본 이미지 변경되는 이벤트
+      $("#thumbnails li").on("mouseover", function () {
+        $(this).css("border", "3px solid orange");
+        originImage.css("background-image", $(this).css("background-image"));
+      });
+      $("#thumbnails li").on("mouseout", function () {
+        $(this).css("border", "0");
+      });
+    </script>
+
+    <hr />
+
+    <div id="box4"></div>
+    <style>
+      #box4 {
+        width: 480px;
+        height: 320px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        /* transition: background-image 1s linear; */
+      }
+    </style>
+    <script>
+      var screenList = [
+        "animal2.jpg",
+        "architecture2.jpg",
+        "flower2.jpg",
+        "fruit2.jpg",
+        "nature2.jpg",
+      ];
+      var box4 = $("#box4");
+      var no = parseInt(Math.random() * screenList.length);
+      box4.css("background-image", "url(../../images/" + imageList[no] + ")");
+      setInterval(function () {
+        while (true) {
+          // 이전에 생성된 no와 동일한 값이 나오면 다시 random을 돌린다.
+          var newNo = parseInt(Math.random() * screenList.length);
+
+          if (no != newNo) return;
+          console.log("재출력");
+        }
+        box4.css("background-image", "url(../../images/" + imageList[no] + ")");
+        console.log("이미지 번호  " + no);
+      }, 2000);
+    </script>
+
+    <hr />
+
+    <div>
+      <input type="button" value="선택" id="btn_choice" />
+      <h1>숫자 : <span id="numbers"></span></h1>
+      <h1>당첨 : <span id="pick"></span></h1>
+    </div>
+
+    <script>
+      var balls = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+      $("#numbers").text(balls);
+      $("#btn_choice").on("click", function () {
+        var randNo = parseInt(Math.random() * balls.length);
+        $("#pick").append(balls.splice(randNo, 1) + "&nbsp;");
+        $("#numbers").text(balls);
+      });
+    </script>
   </body>
 </html>

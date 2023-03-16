@@ -76,6 +76,8 @@
       console.log(computer);
 
       // 속성 삭제
+      delete computer.price;
+      console.log(computer);
     </script>
     <script>
       // 객체의 속성(property)을 for - in문으로 순회할 수 있다.
@@ -217,7 +219,7 @@
         this.name = name;
         this.__proto__.nation = "South Korea";
         this.__proto__.capital = "Seoul";
-        this.__proto__.solgan = function () {
+        this.__proto__.slogan = function () {
           console.log("8282");
         };
       }
@@ -235,7 +237,7 @@
       }
 
       American.prototype.nation = "United State";
-      American.prototype.capital = "Washinton DC";
+      American.prototype.capital = "Washington DC";
 
       // 생성자 함수 호출 (객체 생성)
       var person3 = new American("제시카");

@@ -123,6 +123,7 @@
         xhr.open("get", "product2.xml", true);
         xhr.send();
         xhr.addEventListener("readystatechange", () => {
+          console.log(xhr.readyState, xhr.status);
           if (xhr.readyState == 4 && xhr.status == 200) {
             var data = xhr.responseXML;
             var productList = data.getElementsByTagName("product");

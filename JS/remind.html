@@ -7,22 +7,44 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 id="timer"></h1>
-    <script>
-      var timer = document.getElementById("timer");
-      function timerA(n) {
-        setTimeout(() => {
-          if (n == 0) {
-            timer.textContent = "5초가 지났습니다";
-            return;
-          } else {
-            timer.textContent = n;
-            return timerA(n - 1);
-          }
-        }, 1000);
-      }
+    <input type="button" value="책 정보" id="btn" />
+    <div>
+      <table border="1">
+        <thead>
+          <tr>
+            <td>제목</td>
+            <td>저자</td>
+            <td>가격</td>
+          </tr>
+        </thead>
+        <tbody id="Info"></tbody>
+      </table>
+    </div>
 
-      timerA(5);
+    <script>
+      document.getElementById("btn").addEventListener("click", () => {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "book.json", true);
+        xhr.send();
+
+        xhr.addEventListener("readystatechange", () => {
+          if (xhr.readyState == 4 || xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText);
+            var bookList = data.books;
+
+            var str = "";
+            for (let i = 0; i < bookList.length; i++) {
+              str += "<tr>";
+              str += "<td>" + bookList[i]["title"] + "</td>";
+              str += "<td>" + bookList[i].author + "</td>";
+              str += "<td>" + bookList[i].price + "</td>";
+              str += "</tr>";
+            }
+
+            document.getElementById("Info").innerHTML = str;
+          }
+        });
+      });
     </script>
   </body>
 </html>
